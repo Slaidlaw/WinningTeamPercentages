@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class WinningTeam {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      
+      Team team = new Team();
+      
+      String name = scnr.next();
+      int wins = scnr.nextInt();
+      int losses = scnr.nextInt();
+      
+      team.setTeamName(name);
+      team.setTeamWins(wins);
+      team.setTeamLosses(losses);
+      
+      if (team.getWinPercentage() >= 0.5) {
+         System.out.println("Congratulations, Team " + team.getTeamName() +
+                            " has a winning average!");
+      }
+      else {
+         System.out.println("Team " + team.getTeamName() +
+                            " has a losing average.");
+      }
+   }
+}
+
+
+public class Team {
+   private String name;
+   private int wins;
+   private int losses;
+   
+   // TODO: Define mutator methods - 
+   public void setTeamName(String name) {
+      this.name = name;
+   }
+   
+   public void setTeamWins(int wins) {
+      this.wins = wins;
+   }
+   public void setTeamLosses(int losses) {
+      this.losses = losses;
+   }
+   public String getTeamName() {
+      return name;
+   }
+   public int getTeamWins() {
+      return wins;
+   }
+   public int getTeamLosses() {
+      return losses;
+   }
+   public double getWinPercentage() {
+      double percentage = (double) wins / (wins + losses);
+      return percentage;
+   }
+}
